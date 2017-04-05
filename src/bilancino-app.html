@@ -64,8 +64,8 @@
             role="main">
             <bilancino-home name="home" user="[[user]]"></bilancino-home>
             <bilancino-register-login name="register-login" user="[[user]]"></bilancino-register-login>
-            <bilancino-spese-list name="list" user="[[user]]" route="[[subroute]]"></bilancino-spese-list>
-            <bilancino-spesa-detail name="detail" user="[[user]]" route="[[subroute]]"></bilancino-spesa-detail>
+            <bilancino-spese-list name="spese-list" user="[[user]]" route="[[subroute]]"></bilancino-spese-list>
+            <bilancino-spesa-detail name="spesa-detail" user="[[user]]" route="[[subroute]]"></bilancino-spesa-detail>
             <bilancino-view404 name="view404"></bilancino-view404>
         </iron-pages>
     </template>
@@ -129,7 +129,7 @@
                     JSON.stringify(
                         event.detail));
                 this.$.user.setUser(event.detail);
-                this.set('route.path', '/list');
+                this.set('route.path', '/spese-list');
             }
             _onUserLoggedOut(event) {
                 console.log("onUserLoggedOut()..." + event.detail);

@@ -47,7 +47,7 @@
             _getItemHref(item) {
                 // By returning null when `itemId` is undefined, the href attribute won't be set and
                 // the link will be disabled.
-                return item.id ? ['/detail', item.id].join(
+                return item.id ? ['/spesa-detail', item.id].join(
                     '/') : null;
             }
         }

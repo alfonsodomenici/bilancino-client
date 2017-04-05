@@ -1,3 +1,4 @@
+<!doctype html>
 <!--
 @license
 Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
@@ -7,7 +8,7 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<!doctype html>
+
 <html lang="en">
 
     <head>
@@ -42,15 +43,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <script>
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
-                    navigator.serviceWorker.register('/service-worker.js');
+                    navigator.serviceWorker.register(
+                        '/service-worker.js');
                 });
             }
-
         </script>
         <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
         <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
         <!-- Load your application shell -->
-        <link rel="import" href="/src/postit-app.html">
+        <link rel="import" href="/src/bilancino-app.html">
         <!-- Add any global styles for body, document, etc. -->
         <style>
             body {
@@ -60,12 +61,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 min-height: 100vh;
                 background-color: #eeeeee;
             }
-
         </style>
     </head>
 
     <body>
-        <postit-app></postit-app>
+        <bilancino-app></bilancino-app>
         <!-- Built with love using Polymer Starter Kit -->
     </body>
 
