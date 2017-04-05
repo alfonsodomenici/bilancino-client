@@ -1,0 +1,44 @@
+<!doctype html>
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="bilancino-spese-list-item">
+    <template>
+        <style include="shared-styles">
+             :host {
+                display: block;
+                padding: 10px;
+            }
+        </style>
+        <div class="card">
+            <p> [[item.titolo]] </p>
+            <p> [[item.contenuto]] </p>
+            <p> [[item.dataCreazione]] </p>
+        </div>
+    </template>
+    <script>
+        class BilancinoSpeseListItem extends Polymer.Element {
+            constructor() {
+                super();
+            }
+            connectedCallback() {
+                super.connectedCallback();
+            }
+            ready() {
+                super.ready();
+            }
+            static get is() {
+                return 'bilancino-spese-list-item';
+            }
+            static get properties() {
+                return {
+                    /* properties meta data object just like 1.x */
+                    item: {
+                        type: Object,
+                    }
+                }
+            }
+        }
+        window.customElements.define(BilancinoSpeseListItem.is,
+            BilancinoSpeseListItem);
+    </script>
+</dom-module>

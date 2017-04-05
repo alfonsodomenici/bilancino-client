@@ -1,0 +1,34 @@
+<!doctype html>
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="bilancino-user-data">
+    <template>
+        <app-localstorage-document key="bilancino-user-data" data="{{user}}"></app-localstorage-document>
+    </template>
+    <script>
+        class BilancinoUserData extends Polymer.Element {
+            static get is() {
+                return 'bilancino-user-data';
+            }
+            static get properties() {
+                return {
+                    user: {
+                        type: Object,
+                        value: {},
+                        notify: true
+                    }
+                }
+            }
+            setUser(data) {
+                console.log("setUser..." + JSON.stringify(
+                    data));
+                this.set('user.name', data.name);
+                this.set('user.token', data.token);
+                this.set('user.loggedin', data.loggedin);
+            }
+        }
+        window.customElements.define(BilancinoUserData.is,
+            BilancinoUserData);
+    </script>
+</dom-module>

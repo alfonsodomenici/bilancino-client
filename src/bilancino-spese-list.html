@@ -1,0 +1,57 @@
+<!doctype html>
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="bilancino-data.html">
+<link rel="import" href="bilancino-spese-list-item.html">
+<dom-module id="bilancino-spese-list">
+    <template>
+        <style include="shared-styles">
+             :host {
+                display: block;
+                padding: 10px;
+            }
+        </style>
+        <bilancino-data user="[[user]]" messages="{{messages}}"></bilancino-data>
+        <dom-repeat items="[[messages]]" as="msg">
+            <template>
+                <a href$="[[_getItemHref(msg)]]">
+                    <bilancino-spese-list-item item="[[msg]]"> </bilancino-spese-list-item>
+                </a>
+            </template>
+        </dom-repeat>
+    </template>
+    <script>
+        class BilancinoSpeseList extends Polymer.Element {
+            constructor() {
+                super();
+                console.log("BilancinoSpeseList()...")
+            }
+            connectedCallback() {
+                super.connectedCallback();
+            }
+            ready() {
+                super.ready();
+                console.log("BilancinoSpeseList().ready()...")
+            }
+            static get is() {
+                return 'bilancino-spese-list';
+            }
+            static get properties() {
+                return {
+                    /* properties meta data object just like 1.x */
+                    user: {
+                        type: Object,
+                    },
+                }
+            }
+            _getItemHref(item) {
+                // By returning null when `itemId` is undefined, the href attribute won't be set and
+                // the link will be disabled.
+                return item.id ? ['/detail', item.id].join(
+                    '/') : null;
+            }
+        }
+        window.customElements.define(BilancinoSpeseList.is,
+            BilancinoSpeseList);
+    </script>
+</dom-module>

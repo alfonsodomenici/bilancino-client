@@ -1,0 +1,41 @@
+<!doctype html>
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="bilancino-home">
+    <template>
+        <style include="shared-styles">
+             :host {
+                display: block;
+                padding: 10px;
+            }
+        </style>
+        <div class="card">
+            <h1>bilancino App</h1>
+            <dom-if if="[[user.loggedin]]">
+                <template> </template>
+            </dom-if>
+            <a href="/list">Visualizza i tuoi messaggi</a>
+        </div>
+    </template>
+    <script>
+        class BilancinoHome extends Polymer.Element {
+            constructor() {
+                super();
+                console.log("BilancinoHome()...")
+            }
+            ready() {
+                super.ready();
+                console.log("BilancinoHome().ready()...")
+            }
+            static get is() {
+                return 'bilancino-home';
+            }
+            static get properties() {
+                return {
+                    user: Object,
+                }
+            }
+        }
+        window.customElements.define(BilancinoHome.is, BilancinoHome);
+    </script>
+</dom-module>
